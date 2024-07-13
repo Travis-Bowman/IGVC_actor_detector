@@ -1,0 +1,53 @@
+!!python/object/new:dynamic_reconfigure.encoding.Config
+dictitems:
+  camera_x: 0.0
+  camera_y: -0.1
+  camera_z: 1.0
+  center_pitch: -0.165
+  center_yaw: -1.15
+  groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+    dictitems:
+      camera_x: 0.0
+      camera_y: -0.1
+      camera_z: 1.0
+      center_pitch: -0.165
+      center_yaw: -1.15
+      groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      hfov: 1.15366
+      id: 0
+      max_height: 10.0
+      max_radius: 100.0
+      metric_threshold: 3.0
+      min_height: -10.0
+      min_radius: 0.0
+      name: Default
+      parameters: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      parent: 0
+      position_decay: 0.1
+      size_decay: 0.1
+      speed_decay: 0.5
+      speed_weight: 2.0
+      state: true
+      type: ''
+      vfov: 0.886627
+      x_roll: -0.0430699
+      y_roll: 0.00596964
+      zero_height: -1.213
+    state: []
+  hfov: 1.15366
+  max_height: 10.0
+  max_radius: 100.0
+  metric_threshold: 3.0
+  min_height: -10.0
+  min_radius: 0.0
+  position_decay: 0.1
+  size_decay: 0.1
+  speed_decay: 0.5
+  speed_weight: 2.0
+  vfov: 0.886627
+  x_roll: -0.0430699
+  y_roll: 0.00596964
+  zero_height: -1.213
+state: []

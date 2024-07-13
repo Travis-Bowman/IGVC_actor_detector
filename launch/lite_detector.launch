@@ -1,0 +1,43 @@
+<launch>
+	<!-- ARGS -->
+  <arg name="cam_source_topic" default="/camera/image_raw" />
+
+  <!-- Console launch prefix -->
+  
+  <node pkg="object_detection" type="object_detector_lite_node.py" name="object_detector_lite_node" output="screen" />
+  <node pkg="object_detection" type="detection_reporter_igvc_node.py" name="detection_reporter_igvc_node" output="screen" />
+  
+  <node name="detection_image_viewer_node" pkg="object_detection" type="detection_image_viewer_node" >
+    <param name="show_image" type="boolean" value="false" />
+    <param name="flip_image" type="boolean" value="false" />
+    <param name="detection_image_topic" type="string" value="/camera/image_raw" />
+    <param name="detection_topic" type="string" value="/object_detector/detects" />
+
+    <param name="buffer_size" type="int" value="100" />
+    
+    <param name="draw_lidar" type="boolean" value="false" />
+  </node>
+  
+  <node name="detection_reporter_node" pkg="object_detection" type="detection_reporter_node">
+    <param name="cam_topic" type="string" value="$(arg cam_source_topic)" />
+    <param name="bounding_boxes_topic" type="string" value="/object_detector/detects_raw" />
+
+    <param name="color_spot_width" type="int" value="20" />
+    <param name="smoothing_timeout" type="double" value="0.1" />
+    <param name="target_class" type="string" value="Person" />
+    <param name="sat_adj" type="double" value="3" />
+
+    <param name="overlap_thresh" type="double" value="0.2" />
+    <param name="distance_thresh" type="double" value="0.25" />
+    <param name="persist_method" type="int" value="1" />
+    <param name="retarget_timeout" type="double" value="0.5" />
+    <param name="aruco_grab_dist" type="double" value="0.5" />
+    <param name="distance_expansion" type="double" value="1" />
+    <param name="buffer_size" type="int" value="100" />
+    <param name="center_pitch" type="double" value="-0.165" />
+    <param name="camera_z" type="double" value="-1" />
+  </node>
+
+  <!--<node pkg="object_detection" type="gesture_injection_node.py" name="gesture_injection_node" output="screen" />-->
+  <node pkg="object_detection" type="stopsign_reporter_igvc_node.py" name="stopsign_reporter_igvc_node" />
+</launch>
